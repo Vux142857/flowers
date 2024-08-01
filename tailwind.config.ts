@@ -7,7 +7,7 @@ const config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+  ],
   prefix: "",
   theme: {
     container: {
@@ -52,6 +52,9 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        "dark-gray": "#424245",
+        "light-gray": "#D2D2D7",
+        "gray": "#808080"
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -72,6 +75,37 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      fontSize: {
+        // Desktop Typography
+        'heading-1': ['67px', { lineHeight: '120%', fontWeight: '600' }],
+        'heading-2': ['50px', { lineHeight: '120%', fontWeight: '600' }],
+        'heading-3': ['38px', { lineHeight: '120%', fontWeight: '500' }],
+        'heading-4': ['28px', { lineHeight: '120%', fontWeight: '500' }],
+        'heading-5': ['21px', { lineHeight: '120%', fontWeight: '500' }],
+        'heading-6': ['16px', { lineHeight: '120%', fontWeight: '500' }],
+        'subtitle': ['18px', { lineHeight: '120%', fontWeight: '500' }],
+        'body': ['16px', { lineHeight: '140%', fontWeight: '400' }],
+        'button': ['16px', { lineHeight: '120%', fontWeight: '500' }],
+        'links': ['16px', { lineHeight: '120%', fontWeight: '500' }],
+        'overline': ['14px', { lineHeight: '120%', fontWeight: '500' }],
+        'caption': ['14px', { lineHeight: '120%', fontWeight: '400' }],
+        'caption-small': ['12px', { lineHeight: '120%', fontWeight: '500' }],
+
+        // Mobile Typography
+        'mobile-heading-1': ['40px', { lineHeight: '120%', fontWeight: '500' }],
+        'mobile-heading-2': ['34px', { lineHeight: '120%', fontWeight: '500' }],
+        'mobile-heading-3': ['26px', { lineHeight: '120%', fontWeight: '400' }],
+        'mobile-heading-4': ['22px', { lineHeight: '120%', fontWeight: '400' }],
+        'mobile-heading-5': ['18px', { lineHeight: '120%', fontWeight: '500' }],
+        'mobile-heading-6': ['16px', { lineHeight: '100%', fontWeight: '500' }],
+        'mobile-subtitle': ['18px', { lineHeight: '140%', fontWeight: '500' }],
+        'mobile-body': ['16px', { lineHeight: '140%', fontWeight: '400' }],
+        'mobile-button': ['14px', { lineHeight: '100%', fontWeight: '500' }],
+        'mobile-links': ['14px', { lineHeight: '120%', fontWeight: '500' }],
+        'mobile-overline': ['12px', { lineHeight: '120%', fontWeight: '500' }],
+        'mobile-caption': ['14px', { lineHeight: '120%', fontWeight: '400' }],
+        'mobile-caption-small': ['12px', { lineHeight: '120%', fontWeight: '500' }],
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
