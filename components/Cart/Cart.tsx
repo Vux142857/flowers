@@ -5,6 +5,7 @@ import Image from "../../public/mockCart/image.png";
 import CartItem from "./CartItem";
 import CartIcon from "../icons/CartIcon";
 import Button from "../common/Button";
+import AnimatedText from "../common/AnimatedText";
 
 const Cart = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -57,7 +58,7 @@ const Cart = () => {
 
   return (
     <>
-      <div className="w-[180px] hidden lg:block px-6 py-8 border-l-[1px] border-black cursor-pointer" onClick={openCart}>Cart</div>
+      <div className="w-1/2 hidden lg:block px-6 py-8 border-l-[1px] border-black cursor-pointer" onClick={openCart}><AnimatedText text="Cart" /></div>
       <div className="lg:hidden w-14 h-14 flex items-center justify-center border-l-[1px] border-black cursor-pointer" onClick={openCart}>
         <CartIcon />
       </div>

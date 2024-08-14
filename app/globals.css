@@ -68,3 +68,34 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes appear-from-below {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fall-to-original {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.text-roll-effect {
+  display: inline-block;
+  transition: transform 0.8s ease-in-out;
+}
+
+.text-roll-effect:hover {
+  animation: appear-from-below 0.8s forwards;
+}

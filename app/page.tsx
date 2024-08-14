@@ -1,12 +1,21 @@
+import CategorySection from "@/components/LandingPage/CategorySection";
+import FourthSection from "@/components/LandingPage/FourthSection";
+import ReviewSection from "@/components/LandingPage/ReviewSection";
+import SecondSection from "@/components/LandingPage/SecondSection";
+import ServiceSection from "@/components/LandingPage/ServiceSection";
+import ThirdSection from "@/components/LandingPage/ThirdSection";
 import Layout from "@/components/Layout/Layout";
 
 export default function Home() {
   return (
     <Layout>
       {/* Content */}
-      <div className="h-full bg-blue-400">
-        <h1>Hello</h1>
-      </div>
+      <CategorySection />
+      <SecondSection />
+      <ThirdSection />
+      <FourthSection />
+      <ServiceSection />
+      <ReviewSection />
     </Layout>
   );
 }

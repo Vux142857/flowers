@@ -9,10 +9,9 @@ export enum ButtonType {
 
 interface ButtonProps {
   label: string;
-  onClick: () => void;
+  onClick?: () => void;
   isLeftIcon?: boolean;
   isRightIcon?: boolean;
-  isMobile?: boolean;
   isDisabled?: boolean;
   type?: ButtonType;
   isFull?: boolean;
@@ -23,7 +22,6 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   isLeftIcon = false,
   isRightIcon = false,
-  isMobile = false,
   isDisabled = false,
   type = ButtonType.Primary,
   isFull = false,
@@ -33,11 +31,11 @@ const Button: React.FC<ButtonProps> = ({
   const tertiary = 'bg-black text-white border-[1px] border-white hover:bg-white hover:text-dark-gray';
   const theme = type === ButtonType.Primary ? primary : type === ButtonType.Secondary ? secondary : tertiary;
   return (
-    <div onClick={onClick} className={
-      `px-6 pt-4 pb-[0.875rem] flex flex-row gap-2 items-center ${theme} justify-center text-center ${isMobile ? 'h-12' : 'h-14'} ${isDisabled ? 'disabled' : ''} ${isFull ? 'w-full' : 'm-h-[175px]'}`}>
-      {isLeftIcon && <LeftIcon />}
+    <div className={
+      `cursor-pointer px-6 pt-4 pb-[0.875rem] flex flex-row gap-2 items-center ${theme} justify-center text-center h-12 lg:h-14 ${isDisabled ? 'disabled' : ''} ${isFull ? 'w-full' : 'm-h-[175px]'} relative group`}>
+      {isLeftIcon && <div className="transition-transform duration-300 group-hover:-translate-x-2"><LeftIcon /></div>}
       <p className="text-button">{label.toUpperCase()}</p>
-      {isRightIcon && <RightIcon />}
+      {isRightIcon && <div className="transition-transform duration-300 group-hover:translate-x-2"><RightIcon /></div>}
     </div>
   );
 }

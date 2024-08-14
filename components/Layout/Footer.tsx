@@ -55,7 +55,7 @@ const Footer = () => {
           <a href="/" className="text-links">Wedding & Event Decor</a>
         </div>
       </div>
-      <div className="col-span-1 flex flex-col gap-6 p-10 border-r-[1px] border-y-[1px] border-black h-[429px]">
+      <div className="col-span-1 flex flex-col gap-6 p-10 border-y-[1px] border-black h-[429px]">
         <h5 className="text-heading-5 text-gray">About Us</h5>
         <div className="flex flex-col gap-2">
           <a href="/" className="text-links">Our story</a>
