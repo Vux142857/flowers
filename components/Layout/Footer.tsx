@@ -9,7 +9,7 @@ import Twitter from "../icons/Twitter";
 
 const Footer = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-[1px] border-black">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
       <div className="col-span-1 flex flex-col gap-6 p-10 border-r-[1px] border-y-[1px] border-black h-[429px]">
         <p>Remember to offer beautiful flowers from Kyiv LuxeBouquets Valentines Day, Mothers Day, Christmas... Reminds you 7 days before. No spam or sharing your address</p>
         <InputText placeholder="Enter your email" value="" setValue={() => { }} />

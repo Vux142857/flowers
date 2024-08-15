@@ -105,6 +105,9 @@ const config = {
         'mobile-overline': ['12px', { lineHeight: '120%', fontWeight: '500' }],
         'mobile-caption': ['14px', { lineHeight: '120%', fontWeight: '400' }],
         'mobile-caption-small': ['12px', { lineHeight: '120%', fontWeight: '500' }],
+      },
+      fontFamily: {
+        zapfino: "zapfino",
       }
     },
   },
