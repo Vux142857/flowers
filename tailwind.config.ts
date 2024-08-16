@@ -54,7 +54,8 @@ const config = {
         },
         "dark-gray": "#424245",
         "light-gray": "#D2D2D7",
-        "gray": "#808080"
+        "gray": "#808080",
+        "extra-light": "#F5F5F7"
       },
       borderRadius: {
         lg: "var(--radius)",
