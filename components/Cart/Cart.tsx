@@ -70,7 +70,7 @@ const Cart = () => {
               <CloseIcon />
             </div>
           </div>
-          {/* Nội dung giỏ hàng */}
+          {/* Content of cart */}
           <div className="p-10 border-b border-black">
             {
               mockData.map((item) => (

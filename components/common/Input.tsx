@@ -23,6 +23,7 @@ const InputText: React.FC<InputProps> = ({
       value={value}
       required={isRequired}
       onChange={setValue}
+      autoFocus
     />
   );
 }

@@ -8,8 +8,8 @@ interface CartItemProps {
 }
 const CartItem: React.FC<CartItemProps> = (props) => {
   return (
-    <div className="flex flex-col lg:flex-row gap-4">
-      <div className="flex items-center">
+    <div className="w-full flex flex-col lg:flex-row gap-4">
+      <div className="flex items-center justify-center">
         <Image src={props.image} alt={props.name} width={160} height={160} />
       </div>
       <div className="flex flex-row justify-between py-10 w-full">
