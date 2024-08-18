@@ -30,7 +30,7 @@ const CategoryCart: React.FC<CategoryCardProps> = ({ image, title, isLeft = true
       <div className="w-1/2 flex flex-col relative items-center justify-center border-l-[1px] border-black">
         <h3 className="text-mobile-heading-3 lg:text-heading-3">{title}</h3>
         <div className="absolute bottom-5 lg:bottom-10 border-t-[1px] border-blackborder-t-[1px] border-black">
-          <Button label="Shop now" isLeftIcon={true} onClick={() => { }} />
+          <Button label="Shop now" isLeftIcon={true} onSubmit={() => { }} />
         </div>
       </div>
     </div>

@@ -97,7 +97,7 @@ const Cart = () => {
               Free standard shipping within Kyiv</p>
           </div>
           <div className="flex items-center text-center justify-center">
-            <Button label="Check out" onClick={() => { }} isFull={true} />
+            <Button label="Check out" onSubmit={() => { }} isFull={true} />
           </div>
         </div>
         {isCartOpen && <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 backdrop-blur-sm z-30" onClick={closeCart}></div>}

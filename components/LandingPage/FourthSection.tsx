@@ -26,7 +26,7 @@ const FourthSection = () => {
           </p>
           <div className="flex flex-col md:flex-row gap-6">
             <InputText placeholder="+84" value={value} setValue={setValue} />
-            <Button label="Book a call" onClick={() => { }} />
+            <Button label="Book a call" onSubmit={() => { }} />
           </div>
         </div>
         <div className="lg:h-1/2 flex flex-row items-center border-t-[1px] border-r-[1px] border-black">

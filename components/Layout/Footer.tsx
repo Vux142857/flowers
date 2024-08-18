@@ -13,7 +13,7 @@ const Footer = () => {
       <div className="col-span-1 flex flex-col gap-6 p-10 border-r-[1px] border-y-[1px] border-black h-[429px]">
         <p>Remember to offer beautiful flowers from Kyiv LuxeBouquets Valentines Day, Mothers Day, Christmas... Reminds you 7 days before. No spam or sharing your address</p>
         <InputText placeholder="Enter your email" value="" setValue={() => { }} />
-        <Button label="Remind" onClick={() => { }} />
+        <Button label="Remind" onSubmit={() => { }} />
       </div>
       <div className="col-span-1 flex flex-col gap-6 p-10 border-r-[1px] border-y-[1px] border-black h-[429px]">
         <h5 className="text-heading-5 text-gray">Contact Us</h5>
