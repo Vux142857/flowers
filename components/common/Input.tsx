@@ -5,6 +5,8 @@ interface InputProps {
   value: string;
   setValue: any;
   isRequired?: boolean;
+  isFullWidth?: boolean;
+  isPassword?: boolean;
 }
 const InputText: React.FC<InputProps> = ({
   name,
@@ -13,11 +15,14 @@ const InputText: React.FC<InputProps> = ({
   value,
   setValue,
   isRequired = false,
+  isFullWidth = false,
+  isPassword = false,
 }) => {
   return (
     <input
-      className="h-14 px-4 border-[1px] border-gray"
+      className={`h-14 px-4 border-[1px] border-gray ${isFullWidth ? 'w-full' : 'w-1/2'}`}
       name={name}
+      type={isPassword ? 'password' : 'text'}
       disabled={isDisabled}
       placeholder={placeholder}
       value={value}

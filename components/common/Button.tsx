@@ -15,6 +15,7 @@ interface ButtonProps {
   isDisabled?: boolean;
   type?: ButtonType;
   isFull?: boolean;
+  isSubIcon?: React.ReactNode;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -25,6 +26,7 @@ const Button: React.FC<ButtonProps> = ({
   isDisabled = false,
   type = ButtonType.Primary,
   isFull = false,
+  isSubIcon = null,
 }) => {
   const primary = 'bg-black text-white hover:bg-dark-gray isDisabled:bg-gray disabled:bg-light-gray disabled:text-gray';
   const secondary = 'bg-white text-black border-[1px] border-black hover:bg-black hover:text-white disabled:text-dark-gray disabled:bg-light-gray';
@@ -41,6 +43,7 @@ const Button: React.FC<ButtonProps> = ({
       }
     >
       {isLeftIcon && <div className="transition-transform duration-300 group-hover:-translate-x-2"><LeftIcon /></div>}
+      {isSubIcon && <div className="transition-transform duration-300 group-hover:translate-x-2">{isSubIcon}</div>}
       <p className="text-button">{label.toUpperCase()}</p>
       {isRightIcon && <div className="transition-transform duration-300 group-hover:translate-x-2"><RightIcon /></div>}
     </button>

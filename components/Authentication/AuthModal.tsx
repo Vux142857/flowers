@@ -2,49 +2,71 @@
 
 import { useState } from "react";
 import AnimatedText from "../common/AnimatedText";
-import CloseIcon from "../icons/CloseIcon";
+import SeparateOr from "../icons/SeparateOr";
+import SignIn from "./SignIn";
+import SignUp from "./SignUp";
+import SignInUpWithGoogle from "./SignInUpWithGoogle";
 
 const AuthModal = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSignIn, setIsSignIn] = useState(true);
+
   const openModal = () => {
     setIsModalOpen(true);
-  }
+  };
   const closeModal = () => {
     setIsModalOpen(false);
-  }
+  };
 
-  return ( 
+  return (
     <>
-      <div className="w-1/2 hidden lg:block px-6 py-8 border-l-[1px] border-black cursor-pointer" onClick={openModal}><AnimatedText text="Sign in" /></div>
+      {/* Button to open modal */}
+      <div
+        className="w-1/2 hidden lg:block px-6 py-8 border-l-[1px] border-black cursor-pointer"
+        onClick={openModal}
+      >
+        <AnimatedText text="Sign in" />
+      </div>
+
+      {/* Modal */}
       <>
-        <div className={`fixed top-1/2 right-1/2 flex flex-col w-2/4 max-h-full bg-white shadow-lg z-50 border-black border-[1px] overflow-y-auto transform transition-transform duration-800 ease-out ${isModalOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-          <div className="flex flex-row px-10 py-4 justify-between items-center border-b border-black">
-            <h6 className="text-heading-6">Shopping cart</h6>
-            <div className="cursor-pointer flex items-center" onClick={closeModal}>
-              <CloseIcon />
-            </div>
-          </div>
-          {/* Content of cart */}
-          <div className="p-10 border-b border-black">
-          </div>
-          <div className="p-10 border-b border-black flex md:flex-row gap-4 flex-col items-center justify-between">
-            <p className="text-subtitle">Subtotal</p>
-            <p className="text-subtitle">$100.00</p>
-          </div>
-          <div className="p-10 border-b border-black flex md:flex-row gap-4 flex-col items-center">
-            <textarea className="w-full h-32" name="" id="" placeholder="Gift message">
-            </textarea>
-          </div>
-          <div className="p-10 border-b border-black flex items-center text-center justify-center">
-            <p className="text-caption">Shipping & taxes calculated at checkout
-              Free standard shipping within Kyiv</p>
+        <div
+          className={`fixed top-1/2 left-1/2 flex flex-col w-2/4 max-h-full bg-white shadow-lg z-50 border-black border-[1px] overflow-y-auto transform transition-transform duration-300 ease-out px-20 pt-20 pb-10 ${isModalOpen ? 'translate-x-[-50%] translate-y-[-50%] block' : 'translate-x-full hidden'} border-[1px] border-black shadow-lg gap-6  overflow-x-hidden`}
+        >
+          {/* Modal Header */}
+          <div className="flex justify-between items-center text-left">
+            <h2 className="text-mobile-heading-2 lg:text-heading-2">{
+              isSignIn ? 'Sign in' : 'Greetings! Welcome to luxury gift shop.'
+            }</h2>
           </div>
 
+          {/* Modal Body */}
+          {/* Sign In */}
+          {
+            isSignIn ? (
+              <SignIn />
+            ) : (
+              <SignUp />
+            )
+          }
+          <div className="w-full items-center flex flex-col gap-4">
+            {isSignIn && <p onClick={() => setIsSignIn(!isSignIn)} className="underline text-mobile-heading-6 lg:text-heading-6 hover:cursor-pointer">Sign up if u don&apos;t have account</p>}
+            {!isSignIn && <p onClick={() => setIsSignIn(!isSignIn)} className="underline text-mobile-heading-6 lg:text-heading-6 hover:cursor-pointer">Sign in if u have account</p>}
+            <SeparateOr />
+          </div>
+          <SignInUpWithGoogle />
         </div>
-        {isModalOpen && <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 backdrop-blur-sm z-30" onClick={closeModal}></div>}
+
+        {/* Overlay */}
+        {isModalOpen && (
+          <div
+            className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-20 backdrop-blur-sm z-30"
+            onClick={closeModal}
+          ></div>
+        )}
       </>
     </>
-   );
-}
- 
+  );
+};
+
 export default AuthModal;
