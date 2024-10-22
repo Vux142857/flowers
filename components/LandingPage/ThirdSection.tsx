@@ -21,10 +21,10 @@ const ThirdSection = () => {
     <div className="flex flex-col lg:flex-row border-t-[1px] border-black">
       {/* Left */}
       <div className='lg:w-1/2 flex flex-col p-20 border-r-[1px] border-black lg:sticky lg:top-0 justify-start items-start md:h-screen'>
-        <h2 className="text-mobile-heading-2 lg:text-heading-2 text-start">Why choose us ?</h2>
+        <h2 className="text-mobile-heading-2 lg:text-heading-2 text-start animate-on-scroll">Why choose us ?</h2>
       </div>
       {/* Right */}
-      <div className='lg:w-1/2 flex flex-col border-t-[1px] border-black'>
+      <div className='lg:w-1/2 flex flex-col border-black'>
         {mockData.map((item, index) => (
           <div key={item.heading} className="p-20 flex flex-col gap-4 border-b-[1px] border-black">
             <h3 className="text-mobile-heading-3 lg:text-heading-3">{item.heading}</h3>

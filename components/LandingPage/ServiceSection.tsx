@@ -16,9 +16,9 @@ const ServiceSection = () => {
         </div>
         <div className="flex flex-col lg:w-1/2 items-center p-20 gap-16 justify-center">
           <div className="flex flex-col gap-6 items-center justify-center text-center">
-            <p className="text-mobile-overline lg:text-overline">SERVICE</p>
-            <h2 className="text-mobile-heading-2 lg:text-heading-2">Flower Subscriptions</h2>
-            <span className="text-mobile-subtitle lg:text-subtitle">
+            <p className="text-mobile-overline lg:text-overline animate-on-scroll">SERVICE</p>
+            <h2 className="text-mobile-heading-2 lg:text-heading-2 animate-on-scroll">Flower Subscriptions</h2>
+            <span className="text-mobile-subtitle lg:text-subtitle animate-on-scroll">
               Experience the convenience and savings of regular flower deliveries with our flexible subscription service - up to 30% more profitable than one-time purchases.
             </span>
           </div>

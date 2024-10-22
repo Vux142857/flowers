@@ -20,7 +20,7 @@ const FourthSection = () => {
       {/* Left */}
       <div className="w-full lg:w-1/2 flex flex-col">
         <div className="lg:h-1/2 flex flex-col gap-6 p-8 md:p-20 border-t-[1px] border-r-[1px] border-black justify-between">
-          <h2 className="text-mobile-heading-2 lg:text-heading-2">Let&apos;s Talk</h2>
+          <h2 className="text-mobile-heading-2 lg:text-heading-2 animate-on-scroll">Let&apos;s Talk</h2>
           <p className="text-mobile-body lg:text-body">
             Enter your number and we&apos;ll call you back ASAP to help you with any questions or to place an order
           </p>
