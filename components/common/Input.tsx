@@ -7,6 +7,7 @@ interface InputProps {
   isRequired?: boolean;
   isFullWidth?: boolean;
   isPassword?: boolean;
+  isAutoFocus?: boolean;
 }
 const InputText: React.FC<InputProps> = ({
   name,
@@ -17,6 +18,7 @@ const InputText: React.FC<InputProps> = ({
   isRequired = false,
   isFullWidth = false,
   isPassword = false,
+  isAutoFocus = false,
 }) => {
   return (
     <input
@@ -28,7 +30,7 @@ const InputText: React.FC<InputProps> = ({
       value={value}
       required={isRequired}
       onChange={setValue}
-      autoFocus
+      autoFocus = {isAutoFocus}
     />
   );
 }
