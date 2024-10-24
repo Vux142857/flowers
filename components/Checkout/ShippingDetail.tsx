@@ -48,12 +48,12 @@ const ShippingDetail: React.FC<ShippingDetailProps> = ({
         {isDone && <div className="cursor-pointer" onClick={(e) => { setOnClose(!onClose) }}><FillForm /></div>}
       </div>
       {!isDisabled && <div className={`${onClose ? 'hidden' : ''} flex flex-col gap-4`}>
-        <InputText name="recipientName" placeholder="Recipients Name" value={shippingDetail.recipientName} isRequired={true} setValue={handleShippingChange} />
-        <InputText name="recipientPhone" placeholder="Recipients Phone Number*" isRequired={true} value={shippingDetail.recipientPhone} setValue={handleShippingChange} />
+        <InputText name="recipientName" placeholder="Recipients Name" value={shippingDetail.recipientName} isRequired={true} setValue={handleShippingChange} isFullWidth={true} />
+        <InputText name="recipientPhone" placeholder="Recipients Phone Number*" isRequired={true} value={shippingDetail.recipientPhone} setValue={handleShippingChange} isFullWidth={true} />
         <DatePicker name="deliveryDate" placeholder="Delivery Date" value={shippingDetail.deliveryDate} setValue={handleShippingChange} />
         <div className="flex flex-col lg:flex-row gap-3">
-          <InputText name="street" placeholder="Street" value={shippingDetail.street} isRequired={true} setValue={handleShippingChange} />
-          <InputText name="city" placeholder="City" value={shippingDetail.city} isRequired={true} setValue={handleShippingChange} />
+          <InputText name="street" placeholder="Street" value={shippingDetail.street} isRequired={true} setValue={handleShippingChange} isFullWidth={true} />
+          <InputText name="city" placeholder="City" value={shippingDetail.city} isRequired={true} setValue={handleShippingChange} isFullWidth={true} />
         </div>
         <Button label="Continue to payment" onSubmit={handleSubmit} />
       </div>}

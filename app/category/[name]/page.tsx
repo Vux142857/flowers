@@ -1,83 +1,9 @@
 import Layout from "@/components/Layout/Layout";
-import freshFlower from '../../../public/landingpage/section1/freshFlower.png';
 import ProductCard from "@/components/Category/ProductCard";
+import { mockProducts } from "@/public/mockData/mockData";
 
 const Category = () => {
-
-  const mockData = [
-    {
-      id: '1',
-      name: 'Fresh Flowers - A',
-      image: freshFlower,
-      price: 100
-    },
-    {
-      id: '2',
-      name: 'Fresh Flowers - B',
-      image: freshFlower,
-      price: 100
-    },
-    {
-      id: '3',
-      name: 'Fresh Flowers - C',
-      image: freshFlower,
-      price: 100
-    },
-    {
-      id: '4',
-      name: 'Fresh Flowers - D',
-      image: freshFlower,
-      price: 100
-    },
-    {
-      id: '5',
-      name: 'Fresh Flowers - E',
-      image: freshFlower,
-      price: 100
-    },
-    {
-      id: '6',
-      name: 'Fresh Flowers - F',
-      image: freshFlower,
-      price: 100
-    },
-    {
-      id: '7',
-      name: 'Fresh Flowers - G',
-      image: freshFlower,
-      price: 100
-    },
-    {
-      id: '8',
-      name: 'Fresh Flowers - H',
-      image: freshFlower,
-      price: 100
-    },
-    {
-      id: '9',
-      name: 'Fresh Flowers - I',
-      image: freshFlower,
-      price: 100
-    },
-    {
-      id: '10',
-      name: 'Fresh Flowers - J',
-      image: freshFlower,
-      price: 100
-    },
-    {
-      id: '11',
-      name: 'Fresh Flowers - K',
-      image: freshFlower,
-      price: 100
-    },
-    {
-      id: '12',
-      name: 'Fresh Flowers - L',
-      image: freshFlower,
-      price: 100
-    }
-  ]
+  const mockData = mockProducts
 
   return (
     <Layout>
@@ -96,8 +22,8 @@ const Category = () => {
         {/* Right */}
         <div className='lg:w-1/2 flex flex-col'>
           <div className="grid grid-cols-1 lg:grid-cols-2">
-            {mockData.map((item, index) => (
-              <ProductCard key={index} id={item.id} name={item.name} image={item.image} price={100} />
+            {mockData.map((item) => (
+              <ProductCard key={item.id} {...item} />
             ))}
           </div>
         </div>

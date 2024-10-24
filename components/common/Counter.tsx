@@ -1,11 +1,17 @@
 'use client'
 import React, { useState } from 'react';
 
-const Counter = () => {
-  const [count, setCount] = useState(1);
+interface CounterProps {
+  count: number;
+  increment: () => void;
+  decrement: () => void;
+}
 
-  const increment = () => setCount(prevCount => prevCount + 1);
-  const decrement = () => setCount(prevCount => Math.max(prevCount - 1, 1));
+const Counter:React.FC<CounterProps> = ({
+  count,
+  increment,
+  decrement,
+}) => {
   return (
     <div className="flex items-center border border-black divide-black w-32 text-center">
       <button

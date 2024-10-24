@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Roboto } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+import { ToasterProvider } from "@/lib/ToasterProvider";
 
 const roboto = Roboto({ weight: ["400", "500", "700"], subsets: ["latin"] });
 
@@ -17,7 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={roboto.className}>{children}</body>
+      <body className={roboto.className}>
+        {children}
+        <ToasterProvider />
+      </body>
       <Script src="/scripts/intersectionObserver.js" async></Script>
     </html>
   );

@@ -31,8 +31,8 @@ const FourthSection = () => {
         </div>
         <div className="lg:h-1/2 flex flex-row items-center border-t-[1px] border-r-[1px] border-black">
           <div className="flex flex-col items-center w-1/2 lg:h-full h-72 border-r-[1px] border-black">
-            <div className="h-1/6 border-b-[1px] border-black w-full">
-              <h3 className="text-mobile-heading-3 lg:text-heading-3 pt-4 text-center">Phone</h3>
+            <div className="h-1/6 border-b-[1px] border-black w-full justify-center flex items-center">
+              <h3 className="text-mobile-heading-3 lg:text-heading-3 text-center animate-on-scroll">Phone</h3>
             </div>
             <div className="h-5/6 flex flex-col text-center justify-center items-center gap-4 py-2">
               <div className="flex flex-row gap-4">
@@ -46,8 +46,8 @@ const FourthSection = () => {
             </div>
           </div>
           <div className="flex flex-col items-center w-1/2 lg:h-full h-72">
-            <div className="h-1/6 border-b-[1px] border-black w-full">
-              <h3 className="text-mobile-heading-3 lg:text-heading-3 pt-4 text-center">Address</h3>
+            <div className="h-1/6 border-b-[1px] border-black w-full justify-center flex items-center">
+              <h3 className="text-mobile-heading-3 lg:text-heading-3 text-center animate-on-scroll">Address</h3>
             </div>
             <div className="h-5/6 flex flex-col text-center justify-center items-center gap-4 py-2">
               <div className="flex flex-row gap-4">

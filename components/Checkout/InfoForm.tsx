@@ -44,9 +44,9 @@ const InforForm: React.FC<InforFormProps> = ({
         {isDone && <div className="cursor-pointer" onClick={(e) => { setOnClose(!onClose) }}><FillForm /></div>}
       </div>
       <div className={`flex flex-col gap-4 ${onClose ? 'hidden' : ''}`}>
-        <InputText name="name" isRequired={true} placeholder="Your Name" value={inforForm.name} setValue={handleInfoChange} />
-        <InputText name="email" isRequired={true} placeholder="Your Email" value={inforForm.email} setValue={handleInfoChange} />
-        <InputText name="phone" isRequired={true} placeholder="Your Phone number" value={inforForm.phone} setValue={handleInfoChange} />
+        <InputText name="name" isRequired={true} placeholder="Your Name" value={inforForm.name} setValue={handleInfoChange} isFullWidth={true}/>
+        <InputText name="email" isRequired={true} placeholder="Your Email" value={inforForm.email} setValue={handleInfoChange} isFullWidth={true} />
+        <InputText name="phone" isRequired={true} placeholder="Your Phone number" value={inforForm.phone} setValue={handleInfoChange} isFullWidth={true} />
         <Button label="Continue to shipping" onSubmit={handleSubmit} />
       </div>
     </div>

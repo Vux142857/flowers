@@ -1,14 +1,16 @@
 'use client'
 import CloseIcon from "../icons/CloseIcon";
 import { memo, useState } from "react";
-import Image from "../../public/mockCart/image.png";
-import CartItem from "./CartItem";
 import CartIcon from "../icons/CartIcon";
 import Button from "../common/Button";
 import AnimatedText from "../common/AnimatedText";
+import useCart from "@/lib/client/hooks/useCart";
+import CartElement from "./CartItem";
+import { formatCurrency } from "@/lib/utils";
 
 const Cart = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const { cartItems, total } = useCart();
 
   const openCart = () => {
     setIsCartOpen(true);
@@ -17,44 +19,6 @@ const Cart = () => {
   const closeCart = () => {
     setIsCartOpen(false);
   }
-
-  const mockData = [
-    {
-      id: 1,
-      name: "Product 1",
-      price: 100,
-      quantity: 1,
-      image: Image,
-    },
-    {
-      id: 2,
-      name: "Product 2",
-      price: 200,
-      quantity: 2,
-      image: Image,
-    },
-    {
-      id: 3,
-      name: "Product 2",
-      price: 200,
-      quantity: 2,
-      image: Image,
-    },
-    {
-      id: 4,
-      name: "Product 2",
-      price: 200,
-      quantity: 2,
-      image: Image,
-    },
-    {
-      id: 5,
-      name: "Product 2",
-      price: 200,
-      quantity: 2,
-      image: Image,
-    },
-  ]
 
   return (
     <>
@@ -73,20 +37,17 @@ const Cart = () => {
           {/* Content of cart */}
           <div className="p-10 border-b border-black">
             {
-              mockData.map((item) => (
-                <CartItem
-                  key={item.id}
-                  image={item.image}
-                  name={item.name}
-                  price={item.price}
-                  quantity={item.quantity}
+              cartItems.map((cartItem) => (
+                <CartElement
+                  key={cartItem.item.id}
+                  cartItem={cartItem}
                 />
               ))
             }
           </div>
           <div className="p-10 border-b border-black flex md:flex-row gap-4 flex-col items-center justify-between">
-            <p className="text-subtitle">Subtotal</p>
-            <p className="text-subtitle">$100.00</p>
+            <p className="text-subtitle">Total</p>
+            <p className="text-subtitle">{formatCurrency(total)}</p>
           </div>
           <div className="p-10 border-b border-black flex md:flex-row gap-4 flex-col items-center">
             <textarea className="w-full h-32" name="" id="" placeholder="Gift message">
