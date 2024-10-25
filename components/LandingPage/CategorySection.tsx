@@ -1,44 +1,19 @@
 import Image from 'next/image';
 import flowerAndGirl from '../../public/landingpage/section1/flowerAndGirl.png';
-import freshFlower from '../../public/landingpage/section1/freshFlower.png';
 import CategoryCart from '../CategoryCard';
+import categoryService, { ICategory } from '@/services/client/category.service';
 
-const CategorySection = () => {
-
-  const mockData = [
-    {
-      title: 'Fresh Flowers',
-      image: freshFlower
-    },
-    {
-      title: 'Preserved Flowers',
-      image: freshFlower
-    },
-    {
-      title: 'Gifts',
-      image: freshFlower
-    },
-    {
-      title: 'Workshops',
-      image: freshFlower
-    },
-    {
-      title: 'Weddings',
-      image: freshFlower
-    },
-    {
-      title: 'Events',
-      image: freshFlower
-    },
-    {
-      title: 'Corporate',
-      image: freshFlower
-    },
-    {
-      title: 'Custom Orders',
-      image: freshFlower
-    }
-  ];
+const CategorySection = async () => {
+  const response = await categoryService.getCategories();
+  const categories: ICategory[] = response?.data;
+  if (!Array.isArray(categories) || categories.length <= 0) {
+    return null;
+  } else {
+    categories.sort((a, b) => a.order - b.order);
+    categories.map((item: ICategory) => {
+      item.slug = item.name.toLowerCase().replace(/ /g, '-');
+    })
+  }
 
   return (
     <div className="flex flex-col lg:flex-row w-full min-h-screen">
@@ -61,8 +36,8 @@ const CategorySection = () => {
       </div>
       {/* Right */}
       <div className='lg:w-1/2 flex flex-col'>
-        {mockData.map((item, index) => (
-          <CategoryCart key={index} title={item.title} image={item.image} isLeft={index % 2 === 0} />
+        {categories.map((item: ICategory, index: number) => (
+          <CategoryCart key={index} title={item.name} imageUrl={item.imageUrl || ''} slug={item.slug || ''} id={item.id} isLeft={index % 2 === 0} />
         ))}
       </div>
     </div>

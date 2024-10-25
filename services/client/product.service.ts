@@ -45,6 +45,10 @@ class ProductServices {
   async searchProducts(query: string, page: number = 1, limit: number = LIMIT_PER_PAGE) {
     return await fetcher.get(`${SERVER}/products/search?query=${query}&page=${page}&limit=${limit}`)
   }
+
+  async getProductsByCategory(category: string, page: number = 1, limit: number = LIMIT_PER_PAGE) {
+    return await fetcher.get(`${SERVER}/products/filter?category=${category}&page=${page}&limit=${limit}`)
+  }
 }
 
 const productService = new ProductServices()

@@ -3,18 +3,25 @@ import Image from "next/image";
 import RightSection from "@/components/Product/RightSection";
 import ProductCard from "@/components/Category/ProductCard";
 import { mockProducts } from "@/public/mockData/mockData";
+import productService from "@/services/client/product.service";
 
-const Product = () => {
-  const productDetail = mockProducts[0];
+const Product = async (
+  {
+    searchParams,
+  }: {
+    searchParams: { [key: string]: string }
+  }
+) => {
+  const productDetail = await productService.getProductById(searchParams.id);
   const combineProducts = mockProducts.slice(0, 4);
   const suggestedProducts = mockProducts.slice(0, 4);
-  
+
   return (
     <Layout>
       <div className="flex flex-col lg:flex-row">
         {/* Left */}
         <div className="lg:sticky lg:h-screen lg:top-0 flex items-center lg:w-1/2 overflow-hidden border-t-[1px] border-r-[1px] border-black">
-          <Image src={productDetail.imageUrl} alt={productDetail.name} className="sticky top-0 cursor-pointer w-full h-full object-cover transition-transform duration-300 hover:scale-150" />
+          <Image src={productDetail.imageUrl} alt={productDetail.name} className="sticky top-0 cursor-pointer w-full h-full object-cover transition-transform duration-300 hover:scale-150" width={1080} height={1080} />
         </div>
         {/* Right */}
         <RightSection productDetail={productDetail} combineProducts={combineProducts} />
