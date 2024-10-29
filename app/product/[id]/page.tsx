@@ -2,7 +2,6 @@ import Layout from "@/components/Layout/Layout";
 import Image from "next/image";
 import RightSection from "@/components/Product/RightSection";
 import ProductCard from "@/components/Category/ProductCard";
-import { mockProducts } from "@/public/mockData/mockData";
 import productService from "@/services/client/product.service";
 
 const Product = async (
@@ -13,8 +12,9 @@ const Product = async (
   }
 ) => {
   const productDetail = await productService.getProductById(searchParams.id);
-  const combineProducts = mockProducts.slice(0, 4);
-  const suggestedProducts = mockProducts.slice(0, 4);
+  const combineProductsResponse = await productService.getProductsByCategory(productDetail.category.id);
+  const combineProducts = combineProductsResponse?.data.slice(0, 5) || [];
+  const suggestedProducts = combineProducts?.slice(0, 4) || [];
 
   return (
     <Layout>
