@@ -5,7 +5,7 @@ import Counter from "../common/Counter";
 import ProductSlider from "../common/Slider";
 import PriceOptions from "./PriceOption";
 import { useState } from "react";
-import useCart from "@/lib/client/hooks/useCart";
+import useCart from "@/hooks/useCart";
 
 interface AddToCartProps {
   productDetail: IProduct;
@@ -23,7 +23,7 @@ const AddToCart: React.FC<AddToCartProps> = ({ productDetail, combineProducts })
   };
 
   const addToCart = () => {
-    addItem({ item: productDetail, quantity: count });
+    addItem({ product: productDetail, quantity: count });
   };
 
   return (

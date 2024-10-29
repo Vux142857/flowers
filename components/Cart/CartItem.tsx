@@ -1,4 +1,4 @@
-import useCart, { CartItem } from "@/lib/client/hooks/useCart";
+import useCart, { CartItem } from "@/hooks/useCart";
 import Image from "next/image";
 import Button from "../common/Button";
 import Counter from "../common/Counter";
@@ -8,23 +8,23 @@ interface CartItemProps {
 }
 
 const CartElement: React.FC<CartItemProps> = ({ cartItem }) => {
-  const { item, quantity } = cartItem;
+  const { product, quantity } = cartItem;
   const { increaseQuantity, decreaseQuantity, removeItem } = useCart();
 
-  const onRemove = () => removeItem(item.id);
-  const onIncrease = () => increaseQuantity(item.id);
-  const onDecrease =  () => decreaseQuantity(item.id);
+  const onRemove = () => removeItem(product.id);
+  const onIncrease = () => increaseQuantity(product.id);
+  const onDecrease =  () => decreaseQuantity(product.id);
 
   return (
     <div className="w-full flex flex-col lg:flex-row gap-4">
       <div className="flex items-center justify-center">
-        <Image src={item.imageUrl} alt={item.name} width={160} height={160} />
+        <Image src={product.imageUrl} alt={product.name} width={160} height={160} />
       </div>
       <div className="flex flex-row justify-between py-10 w-full">
         <div className="flex flex-col gap-4 text-start">
-          <p className="text-subtitle">{item.name}</p>
+          <p className="text-subtitle">{product.name}</p>
           <p className="text-body">Quantiy {"(" + quantity + ")"}</p>
-          <p className="text-subtitle">{"$" + item.price}</p>
+          <p className="text-subtitle">{"$" + product.price}</p>
         </div>
         <div className="flex flex-row gap-4 items-center">
           <Button label="Remove" onSubmit={onRemove} />

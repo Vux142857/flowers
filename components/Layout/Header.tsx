@@ -3,8 +3,11 @@ import AuthModal from "../Authentication/AuthModal";
 import Cart from "../Cart/Cart";
 import AnimatedText from "../common/AnimatedText";
 import BurgerMenu from "./BurgerMenu";
+import { getServerSession } from "next-auth";
+import { authOption } from "@/lib/server/authOption";
 
-const Header = () => {
+const Header = async () => {
+  const session = await getServerSession(authOption);
   const desktopHeader = (
     <div className="hidden lg:flex flex-row justify-between font-medium text-heading-5">
       <div className="flex flex-row items-center text-center w-1/4">
@@ -19,7 +22,7 @@ const Header = () => {
         {/* <div className="w-1/2 px-6 py-8 border-l-[1px] border-black cursor-pointer">
           <AnimatedText text='Sign in' />
         </div> */}
-        <AuthModal />
+        <AuthModal session={session} />
         <Cart />
       </div>
     </div>

@@ -6,8 +6,13 @@ import SeparateOr from "../icons/SeparateOr";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import SignInUpWithGoogle from "./SignInUpWithGoogle";
+import { signOut } from "next-auth/react";
 
-const AuthModal = () => {
+interface AuthModalProps {
+  session?: any;
+}
+
+const AuthModal: React.FC<AuthModalProps> = ({ session }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSignIn, setIsSignIn] = useState(true);
 
@@ -18,14 +23,21 @@ const AuthModal = () => {
     setIsModalOpen(false);
   };
 
+  const handleSignOut = async () => {
+    await signOut({
+      redirect: false,
+      callbackUrl: '/',
+    });
+    window.location.href = '/';
+  }
+
   return (
     <>
       {/* Button to open modal */}
       <div
         className="w-1/2 hidden lg:block px-6 py-8 border-l-[1px] border-black cursor-pointer"
-        onClick={openModal}
       >
-        <AnimatedText text="Sign in" />
+        {session ? <AnimatedText text='Sign out' onClick={handleSignOut} /> : <AnimatedText text='Sign in' onClick={openModal} />}
       </div>
 
       {/* Modal */}

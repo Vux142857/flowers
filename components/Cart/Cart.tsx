@@ -4,12 +4,14 @@ import { memo, useState } from "react";
 import CartIcon from "../icons/CartIcon";
 import Button from "../common/Button";
 import AnimatedText from "../common/AnimatedText";
-import useCart from "@/lib/client/hooks/useCart";
+import useCart from "@/hooks/useCart";
 import CartElement from "./CartItem";
 import { formatCurrency } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 
 const Cart = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const router = useRouter();
   const { cartItems, total } = useCart();
 
   const openCart = () => {
@@ -37,9 +39,9 @@ const Cart = () => {
           {/* Content of cart */}
           <div className="p-10 border-b border-black">
             {
-              cartItems.map((cartItem) => (
+              cartItems.length > 0 && cartItems.map((cartItem) => (
                 <CartElement
-                  key={cartItem.item.id}
+                  key={cartItem.product.id}
                   cartItem={cartItem}
                 />
               ))
@@ -58,7 +60,9 @@ const Cart = () => {
               Free standard shipping within Kyiv</p>
           </div>
           <div className="flex items-center text-center justify-center">
-            <Button label="Check out" onSubmit={() => { }} isFull={true} />
+            <Button label="Check out" onSubmit={() => {
+              router.push('/checkout');
+            }} isFull={true} />
           </div>
         </div>
         {isCartOpen && <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 backdrop-blur-sm z-30" onClick={closeCart}></div>}

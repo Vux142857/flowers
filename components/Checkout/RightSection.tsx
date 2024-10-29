@@ -3,7 +3,7 @@ import CartItem from "../Cart/CartItem";
 import InputText from "../common/Input";
 import Button from "../common/Button";
 import LockIcon from "../icons/LockIcon";
-import useCart from "@/lib/client/hooks/useCart";
+import useCart from "@/hooks/useCart";
 import { useEffect, useState } from "react";
 import { formatCurrency } from "@/lib/utils";
 
@@ -28,7 +28,7 @@ const RightSection = () => {
         {
           cartItems.map((cartItem) => (
             <CartItem
-              key={cartItem.item.id}
+              key={cartItem.product.id}
               cartItem={cartItem}
             />
           ))

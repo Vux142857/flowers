@@ -5,12 +5,6 @@ import { StaticImageData } from "next/image";
 
 const SERVER = process.env.NEXT_PUBLIC_SERVER as string
 
-export interface UnitInProduct {
-  name: string
-  remaining: number
-  price: number
-}
-
 export interface IProduct {
   id: string;
   name: string;

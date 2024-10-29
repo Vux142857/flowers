@@ -23,12 +23,6 @@ const LeftSection = () => {
     city: ''
   })
 
-  const [paymentDetail, setPaymentDetail] = useState({
-    cardNumber: '',
-    cardHolder: '',
-    expiryDate: '',
-  })
-
   const [isDoneInfo, setIsDoneInfo] = useState(false);
   const [isDoneShipDetails, setIsDoneShipDetails] = useState(false);
   const [isDonePayment, setIsDonePayment] = useState(false);
@@ -44,14 +38,6 @@ const LeftSection = () => {
   const handleShippingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setShippingDetail(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
-  }
-
-  const handlePaymentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setPaymentDetail(prevState => ({
       ...prevState,
       [name]: value
     }));
@@ -89,8 +75,8 @@ const LeftSection = () => {
       />
       <Payment
         shippingDetail={shippingDetail}
-        handleShippingChange={handlePaymentChange}
         isDisabled={!isDoneShipDetails}
+        handleShippingChange={handleShippingChange}
         isDone={isDonePayment}
         setIsDone={setIsDonePayment}
       />

@@ -4,7 +4,7 @@ import { persist, createJSONStorage } from "zustand/middleware";
 import { IProduct } from "@/services/client/product.service";
 
 export interface CartItem {
-  item: IProduct;
+  product: IProduct;
   quantity: number;
   subTotal?: number;
 }
@@ -35,19 +35,20 @@ const useCart = create(
       },
 
       addItem: (data: CartItem) => {
-        const { item, quantity } = data;
+        const { product, quantity } = data;
         const currentItems = get().cartItems;
         const isExisting = currentItems.find(
-          (cartItem) => cartItem.item.id === item.id
+          (cartItem) => cartItem.product.id === product.id
         );
 
         if (isExisting) {
           return toast("Item already in cart");
         }
+        console.log("product", product);
 
-        const subTotal = item.price * quantity;
+        const subTotal = product.price * quantity;
 
-        set({ cartItems: [...currentItems, { item, quantity, subTotal }] });
+        set({ cartItems: [...currentItems, { product, quantity, subTotal }] });
         toast.success("Item added to cart", { icon: "🛒" });
 
         get().calculateTotal();
@@ -55,7 +56,7 @@ const useCart = create(
 
       removeItem: (idToRemove: string) => {
         const newCartItems = get().cartItems.filter(
-          (cartItem) => cartItem.item.id !== idToRemove
+          (cartItem) => cartItem.product.id !== idToRemove
         );
         set({ cartItems: newCartItems });
         toast.success("Item removed from cart");
@@ -65,12 +66,12 @@ const useCart = create(
 
       increaseQuantity: (idToIncrease: string) => {
         const newCartItems = get().cartItems.map((cartItem) =>
-          cartItem.item.id === idToIncrease
+          cartItem.product.id === idToIncrease
             ? {
-                ...cartItem,
-                quantity: cartItem.quantity + 1,
-                subTotal: cartItem.item.price * (cartItem.quantity + 1),
-              }
+              ...cartItem,
+              quantity: cartItem.quantity + 1,
+              subTotal: cartItem.product.price * (cartItem.quantity + 1),
+            }
             : cartItem
         );
         set({ cartItems: newCartItems });
@@ -81,17 +82,21 @@ const useCart = create(
 
       decreaseQuantity: (idToDecrease: string) => {
         const newCartItems = get().cartItems.map((cartItem) =>
-          cartItem.item.id === idToDecrease && cartItem.quantity > 1
+          cartItem.product.id === idToDecrease && cartItem.quantity > 0
             ? {
-                ...cartItem,
-                quantity: cartItem.quantity - 1,
-                subTotal: cartItem.item.price * (cartItem.quantity - 1),
-              }
+              ...cartItem,
+              quantity: cartItem.quantity - 1,
+              subTotal: cartItem.product.price * (cartItem.quantity - 1),
+            }
             : cartItem
         );
         set({ cartItems: newCartItems });
-        toast.success("Item quantity decreased");
-
+        const currentItem = newCartItems.find((cartItem) => cartItem.product.id === idToDecrease)
+        if (currentItem?.quantity === 0) {
+          get().removeItem(idToDecrease);
+        } else {
+          toast.success("Item quantity decreased");
+        }
         get().calculateTotal();
       },
 

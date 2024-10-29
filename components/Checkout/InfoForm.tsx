@@ -4,6 +4,7 @@ import Button from "../common/Button";
 import InputText from "../common/Input";
 import FillForm from "../icons/FillForm";
 import Checked from "../icons/Checked";
+import InputNumber from "../common/InputNumber";
 
 interface InforFormProps {
   inforForm: {
@@ -44,9 +45,9 @@ const InforForm: React.FC<InforFormProps> = ({
         {isDone && <div className="cursor-pointer" onClick={(e) => { setOnClose(!onClose) }}><FillForm /></div>}
       </div>
       <div className={`flex flex-col gap-4 ${onClose ? 'hidden' : ''}`}>
-        <InputText name="name" isRequired={true} placeholder="Your Name" value={inforForm.name} setValue={handleInfoChange} isFullWidth={true}/>
+        <InputText name="name" isRequired={true} placeholder="Your Name" value={inforForm.name} setValue={handleInfoChange} isFullWidth={true} />
         <InputText name="email" isRequired={true} placeholder="Your Email" value={inforForm.email} setValue={handleInfoChange} isFullWidth={true} />
-        <InputText name="phone" isRequired={true} placeholder="Your Phone number" value={inforForm.phone} setValue={handleInfoChange} isFullWidth={true} />
+        <InputNumber name="phone" isRequired={true} placeholder="Your Phone" value={inforForm.phone} setValue={handleInfoChange} isFullWidth={true} />
         <Button label="Continue to shipping" onSubmit={handleSubmit} />
       </div>
     </div>

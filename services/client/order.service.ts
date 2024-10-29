@@ -2,15 +2,31 @@ import fetcher from "@/lib/fetcher";
 import { LIMIT_PER_PAGE } from "@/lib/client/constants";
 import { IUser } from "./user.service";
 import { getSession } from "next-auth/react";
+import { CartItem } from "@/hooks/useCart";
 
 const SERVER = process.env.NEXT_PUBLIC_SERVER as string
+
+export enum PaymentMethod {
+  COD = 'COD',
+  ZALOPAY = 'ZALOPAY',
+}
+
+export enum StatusOrder {
+  PENDING = 'pending',
+}
 
 export interface IOrder {
   id?: string;
   order_ID?: string;
-  customer: IUser | null;
+  fullName: string;
+  phone: string;
+  address: string;
+  note?: string | '';
+  shippingCost?: number;
   total: number;
-  statusOrder?: string;
+  paymentMethod: PaymentMethod;
+  statusOrder: StatusOrder;
+  orderItems: CartItem[];
   createdAt?: Date;
   updatedAt?: Date;
 }
@@ -30,9 +46,16 @@ class OrderService {
   }
 
   async postOrder(data: IOrder) {
+    console.log("Data:", data);
     const accessToken = await this.getAccessTokenClientSide()
     if (!accessToken) return null
-    return await fetcher.postWithAuth(`${SERVER}/orders/create`, data, accessToken)
+    return await fetcher.postWithAuth(`${SERVER}/orders`, data, accessToken)
+  }
+
+  async createPaymentZaloPay(data: IOrder) {
+    const [initOrder, accessToken] = await Promise.all([this.postOrder(data), this.getAccessTokenClientSide()])
+    if (!initOrder || !accessToken) return null
+    return await fetcher.postWithAuth(`${SERVER}/orders/${initOrder.order_ID}/zalopay`, {}, accessToken)
   }
 
   private async getAccessTokenClientSide() {
@@ -40,6 +63,13 @@ class OrderService {
     const accessToken = session?.user?.accessToken
     if (!accessToken) return null
     return accessToken
+  }
+
+  private async getUserClientSide() {
+    const session = await getSession();
+    const user = session?.user
+    if (!user) return null
+    return user
   }
 }
 

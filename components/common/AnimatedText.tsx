@@ -5,9 +5,10 @@ import { useState } from "react";
 
 interface AnimatedTextProps {
   text: string;
+  onClick?: () => void;
 }
 
-const AnimatedText: React.FC<AnimatedTextProps> = ({ text }) => {
+const AnimatedText: React.FC<AnimatedTextProps> = ({ text, onClick }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const variants = {
@@ -25,6 +26,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ text }) => {
       className="relative h-8 overflow-hidden"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={onClick}
     >
       <motion.div
         className="absolute w-full h-full z-20"
