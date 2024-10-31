@@ -4,7 +4,6 @@ interface NavLeftSectionProps {
 
 const NavLeftSection: React.FC<NavLeftSectionProps> = ({ currentStep }) => {
   const getStepClass = (step: string) => {
-    console.log(currentStep, step);
     return currentStep === step ? 'font-bold' : 'text-light-gray';
   };
 

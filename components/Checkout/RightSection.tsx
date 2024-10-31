@@ -37,7 +37,7 @@ const RightSection = () => {
       <div className="flex flex-col border-b border-black gap-4 pb-6 w-full items-center justify-center">
         <span className="text-mobile-body lg:text-body text-center">If you have our gift card, enter the code to get discounts</span>
         <div className="flex flex-col lg:flex-row w-full items-center justify-center gap-2">
-          <InputText name="promo" placeholder="Promo code" setValue={''} value="" />
+          <InputText name="promo" placeholder="Promo code" value="" setValue={() => { }} />
           <Button label="Apply" onSubmit={() => { }} />
         </div>
       </div>

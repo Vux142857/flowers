@@ -5,6 +5,7 @@ import DatePicker from "../common/DatePicker";
 import InputText from "../common/Input";
 import Checked from "../icons/Checked";
 import FillForm from "../icons/FillForm";
+import InputNumber from "../common/InputNumber";
 
 interface ShippingDetailProps {
   shippingDetail: {
@@ -49,7 +50,7 @@ const ShippingDetail: React.FC<ShippingDetailProps> = ({
       </div>
       {!isDisabled && <div className={`${onClose ? 'hidden' : ''} flex flex-col gap-4`}>
         <InputText name="recipientName" placeholder="Recipients Name" value={shippingDetail.recipientName} isRequired={true} setValue={handleShippingChange} isFullWidth={true} />
-        <InputText name="recipientPhone" placeholder="Recipients Phone Number*" isRequired={true} value={shippingDetail.recipientPhone} setValue={handleShippingChange} isFullWidth={true} />
+        <InputNumber isFullWidth={true} name="recipientPhone" value={shippingDetail.recipientPhone} setValue={handleShippingChange} />
         <DatePicker name="deliveryDate" placeholder="Delivery Date" value={shippingDetail.deliveryDate} setValue={handleShippingChange} />
         <div className="flex flex-col lg:flex-row gap-3">
           <InputText name="street" placeholder="Street" value={shippingDetail.street} isRequired={true} setValue={handleShippingChange} isFullWidth={true} />
