@@ -7,6 +7,7 @@ import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import SignInUpWithGoogle from "./SignInUpWithGoogle";
 import { signOut } from "next-auth/react";
+import useCart from "@/hooks/useCart";
 
 interface AuthModalProps {
   session?: any;
@@ -15,7 +16,7 @@ interface AuthModalProps {
 const AuthModal: React.FC<AuthModalProps> = ({ session }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSignIn, setIsSignIn] = useState(true);
-
+  const { clearCart } = useCart();
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -28,6 +29,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ session }) => {
       redirect: false,
       callbackUrl: '/',
     });
+    clearCart();
     window.location.href = '/';
   }
 
@@ -37,7 +39,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ session }) => {
       <div
         className="w-1/2 hidden lg:block px-6 py-8 border-l-[1px] border-black cursor-pointer"
       >
-        {session ? <AnimatedText text='Sign out' onClick={handleSignOut} /> : <AnimatedText text='Sign in' onClick={openModal} />}
+        {(!session || session?.error) ? <AnimatedText text='Sign in' onClick={openModal} /> : <AnimatedText text='Sign out' onClick={handleSignOut} />}
       </div>
 
       {/* Modal */}

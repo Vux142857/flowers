@@ -6,12 +6,10 @@ import Pagination from "../common/Paginations";
 
 interface LayoutTableProps {
   schemaName: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   columns: any[]
   searchComponent?: React.ReactNode
   filterComponent?: React.ReactNode | null
   response: {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     data: any[],
     meta: IMeta,
     links: ILinks

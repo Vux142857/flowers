@@ -23,7 +23,7 @@ const FirstSection = () => {
         <Image src={section1} alt={"Subscription"} quality={100} className="w-full h-full object-cover" />
       </div>
       <div className="flex flex-col gap-6 items-start p-20 lg:w-1/2 h-full">
-        <h2 className="text-mobile-heading-2 lg:text-heading-2">Flower Subscription</h2>
+        <h2 className="text-mobile-heading-2 lg:text-heading-2 animate-on-scroll">Flower Subscription</h2>
         <div className="flex flex-col gap-6 items-start mb-10">
           {
             mockData.map((data, index) => (

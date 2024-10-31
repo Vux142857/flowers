@@ -13,12 +13,12 @@ import {
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 import toast from "react-hot-toast";
-import Delete from "../admin/common/Delete"
 import { Schemas, StatusOrder } from "@/lib/admin/constants"
-import Loader from "../admin/common/Loader"
 import { useForm } from "react-hook-form"
 import orderService, { IOrder } from "@/services/admin/order.service"
-import { Input } from "../ui/input"
+import Delete from "../common/Delete"
+import Loader from "../common/Loader"
+import { Input } from "@/components/ui/input"
 
 interface OrderFormProps {
   initialData: IOrder | null;

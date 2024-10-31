@@ -1,7 +1,8 @@
 import Image from "next/image";
 import flowerSubscribtion from "../../public/landingpage/serviceSection/flowerSubscription.png";
 import Button, { ButtonType } from "../common/Button";
-import weddingEventDecor from "../../public/landingpage/serviceSection/weddingEventDecor.png"
+import WIPPopup from "../common/WIPPopup";
+import Link from "next/link";
 
 const ServiceSection = () => {
   return (
@@ -22,7 +23,7 @@ const ServiceSection = () => {
               Experience the convenience and savings of regular flower deliveries with our flexible subscription service - up to 30% more profitable than one-time purchases.
             </span>
           </div>
-          <Button label="Subscribe now" type={ButtonType.Secondary} />
+          <Link href={'/subscription'}><Button label="Subscribe now" type={ButtonType.Secondary} /></Link>
         </div>
       </div>
       {/* Mini Section 2 */}
@@ -37,7 +38,7 @@ const ServiceSection = () => {
             Let our team of expert florists and designers create stunning, on-trend floral décor for your special day. Trust us to bring your vision to life.
           </span>
         </div>
-        <Button label="Inquire Now" type={ButtonType.Secondary} />
+        <WIPPopup gate={<Button label="Inquire Now" type={ButtonType.Secondary} />} />
       </div>
     </div>
   );

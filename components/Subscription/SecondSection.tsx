@@ -17,7 +17,7 @@ const SecondSection = () => {
     <div className="flex flex-col lg:flex-row border-t-[1px] border-black">
       {/* Left */}
       <div className='lg:w-1/2 flex flex-col p-20 border-r-[1px] border-black lg:sticky lg:top-0 justify-start items-start md:h-screen'>
-        <h2 className="text-mobile-heading-2 lg:text-heading-2 text-start">How does it work?</h2>
+        <h2 className="text-mobile-heading-2 lg:text-heading-2 text-start animate-on-scroll">How does it work?</h2>
       </div>
       {/* Right */}
       <div className='lg:w-1/2 flex flex-col border-t-[1px] border-black'>

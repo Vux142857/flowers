@@ -6,6 +6,7 @@ import Image from 'next/image';
 import PlanCard from '../common/PlanCard';
 import Button, { ButtonType } from '../common/Button';
 import Counter from '../common/Counter';
+import WIPPopup from '../common/WIPPopup';
 
 const ThirdSection = () => {
   const mockData = [
@@ -54,7 +55,7 @@ const ThirdSection = () => {
       <div className="flex flex-col items-center lg:w-1/2 h-full border-r-[1px] border-black px-10 py-20 gap-6">
         {/*  */}
         <div className="flex flex-col text-start gap-6">
-          <p className="text-overline">BUILD YOUR SUBSCRIPTION</p>
+          <p className="text-overline animate-on-scroll">BUILD YOUR SUBSCRIPTION</p>
           <h3 className="text-mobile-heading-3 lg:text-heading-3">Selecting a plan</h3>
           <span className="text-mobile-body lg:text-bodtext-mobile-body">
             Enjoy free shipping on every order and save up to 30%.
@@ -107,7 +108,7 @@ const ThirdSection = () => {
         </div>
         {/*  */}
         <div className='flex flex-col py-10 border-t-[1px] w-full border-light-gray gap-6'>
-          <Button label='Checkout' isFull={true} />
+          <WIPPopup gate={<Button label='Checkout' isFull={true} />} />
         </div>
       </div>
       {/* Right */}

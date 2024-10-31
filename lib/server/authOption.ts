@@ -90,7 +90,6 @@ export const authOption: NextAuthOptions = {
     maxAge: 24 * 60 * 60,
   },
   callbacks: {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async jwt({ token, user }: { token: any; user?: User }) {
       if (user) {
         token.id = user.id;
@@ -112,7 +111,6 @@ export const authOption: NextAuthOptions = {
       return refreshAccessToken(token.refreshToken, token);
     },
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     async session({ session, token }: { session: Session, token: any }) {
       session.user = {
         id: token.id,

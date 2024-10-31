@@ -3,6 +3,7 @@ import image1 from '../../public/aboutUs/section2/image1.png';
 import image2 from '../../public/aboutUs/section2/image2.png';
 import image3 from '../../public/aboutUs/section2/image3.png';
 import Button, { ButtonType } from '../common/Button';
+import Link from 'next/link';
 
 const SecondSection = () => {
   const mockData = [
@@ -27,7 +28,7 @@ const SecondSection = () => {
     <div className="flex flex-col items-center border-t-[1px] border-black">
       {/* First Section */}
       <div className="flex flex-col items-center p-20 gap-16 justify-center">
-        <div className="flex flex-col gap-6 items-center justify-center text-center">
+        <div className="flex flex-col gap-6 items-center justify-center text-center animate-on-scroll">
           <p className="text-mobile-overline lg:text-overline">OUR STORY</p>
           <h2 className="text-mobile-heading-2 lg:text-heading-2">Our Founder&rsquo;s Passion</h2>
           <span className="text-mobile-subtitle lg:text-subtitle">
@@ -40,10 +41,10 @@ const SecondSection = () => {
       <div className='flex flex-col items-center'>
         {
           mockData.map((item, index) => (
-            <div key={index} className="flex flex-col lg:flex-row items-center justify-center border-t-[1px] border-black">
-              <div className={`flex flex-col gap-6 p-20 lg:w-1/2 order-1 ${index % 2 === 0 ? 'lg:-order-1' : 'lg:order-1'}`}>
+            <div key={index} className="flex flex-col lg:flex-row items-center justify-center border-t-[1px] border-black ">
+              <div className={`flex flex-col gap-6 p-20 lg:w-1/2 order-1 animate-on-scroll-up ${index % 2 === 0 ? 'lg:-order-1' : 'lg:order-1'}`}>
                 <h2 className="text-mobile-heading-2 lg:text-heading-2">{item.title}</h2>
-                <span>{item.body}</span>
+                <span className='animate-on-scroll-up'>{item.body}</span>
               </div>
               <div className={`flex items-center lg:w-1/2 border-t lg:border-t-0 ${index % 2 === 0 ? 'lg:border-r-[1px]' : 'lg:border-l-[1px]'} border-black -order-1 ${index % 2 === 0 ? 'lg:order-1' : 'lg:-order-1'}`}>
                 <Image src={item.image} alt={item.title} className="object-cover w-full h-full" />
@@ -59,7 +60,7 @@ const SecondSection = () => {
         <span className="text-mobile-subtitle lg:text-subtitle">
           Explore our collection of exquisite bouquets and surprise your loved ones with the perfect gift. Click the button below to start shopping
         </span>
-        <Button label="Shop now" type={ButtonType.Primary} />
+        <Link href='/'><Button label="Shop now" type={ButtonType.Primary} /></Link>
       </div>
     </div>
   );

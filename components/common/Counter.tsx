@@ -1,10 +1,9 @@
 'use client'
-import React, { useState } from 'react';
 
 interface CounterProps {
-  count: number;
-  increment: () => void;
-  decrement: () => void;
+  count?: number;
+  increment?: () => void;
+  decrement?: () => void;
 }
 
 const Counter:React.FC<CounterProps> = ({

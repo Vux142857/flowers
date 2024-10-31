@@ -11,6 +11,7 @@ import Pinterest from "../icons/Pinterest";
 import Facebook from "../icons/Facebook";
 import Twitter from "../icons/Twitter";
 import Telegram from "../icons/Telegram";
+import WIPPopup from "../common/WIPPopup";
 
 const FourthSection = () => {
   const [value, setValue] = useState('');
@@ -20,19 +21,19 @@ const FourthSection = () => {
       {/* Left */}
       <div className="w-full lg:w-1/2 flex flex-col">
         <div className="lg:h-1/2 flex flex-col gap-6 p-8 md:p-20 border-t-[1px] border-r-[1px] border-black justify-between">
-          <h2 className="text-mobile-heading-2 lg:text-heading-2 animate-on-scroll">Let&apos;s Talk</h2>
+          <h2 className="text-mobile-heading-2 lg:text-heading-2">Let&apos;s Talk</h2>
           <p className="text-mobile-body lg:text-body">
             Enter your number and we&apos;ll call you back ASAP to help you with any questions or to place an order
           </p>
           <div className="flex flex-col md:flex-row gap-6">
             <InputText placeholder="+84" value={value} setValue={setValue} />
-            <Button label="Book a call" onSubmit={() => { }} />
+            <WIPPopup gate={<Button label="Book a call" onSubmit={() => { }} />} />
           </div>
         </div>
         <div className="lg:h-1/2 flex flex-row items-center border-t-[1px] border-r-[1px] border-black">
           <div className="flex flex-col items-center w-1/2 lg:h-full h-72 border-r-[1px] border-black">
             <div className="h-1/6 border-b-[1px] border-black w-full justify-center flex items-center">
-              <h3 className="text-mobile-heading-3 lg:text-heading-3 text-center animate-on-scroll">Phone</h3>
+              <h3 className="text-mobile-heading-3 lg:text-heading-3 text-center">Phone</h3>
             </div>
             <div className="h-5/6 flex flex-col text-center justify-center items-center gap-4 py-2">
               <div className="flex flex-row gap-4">
@@ -47,7 +48,7 @@ const FourthSection = () => {
           </div>
           <div className="flex flex-col items-center w-1/2 lg:h-full h-72">
             <div className="h-1/6 border-b-[1px] border-black w-full justify-center flex items-center">
-              <h3 className="text-mobile-heading-3 lg:text-heading-3 text-center animate-on-scroll">Address</h3>
+              <h3 className="text-mobile-heading-3 lg:text-heading-3 text-center">Address</h3>
             </div>
             <div className="h-5/6 flex flex-col text-center justify-center items-center gap-4 py-2">
               <div className="flex flex-row gap-4">

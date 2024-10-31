@@ -19,7 +19,6 @@ const Delete: React.FC<DeleteProps> = ({ item, id }) => {
   const onDelete = async () => {
     try {
       setLoading(true)
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       let res: any;
       switch (item) {
         case Schemas.CATEGORY:

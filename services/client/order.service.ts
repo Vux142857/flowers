@@ -1,6 +1,5 @@
 import fetcher from "@/lib/fetcher";
 import { LIMIT_PER_PAGE } from "@/lib/client/constants";
-import { IUser } from "./user.service";
 import { getSession } from "next-auth/react";
 import { CartItem } from "@/hooks/useCart";
 
@@ -13,6 +12,7 @@ export enum PaymentMethod {
 
 export enum StatusOrder {
   PENDING = 'pending',
+  DONE = 'done',
 }
 
 export interface IOrder {
@@ -46,16 +46,15 @@ class OrderService {
   }
 
   async postOrder(data: IOrder) {
-    console.log("Data:", data);
     const accessToken = await this.getAccessTokenClientSide()
     if (!accessToken) return null
     return await fetcher.postWithAuth(`${SERVER}/orders`, data, accessToken)
   }
 
   async createPaymentZaloPay(data: IOrder) {
-    const [initOrder, accessToken] = await Promise.all([this.postOrder(data), this.getAccessTokenClientSide()])
-    if (!initOrder || !accessToken) return null
-    return await fetcher.postWithAuth(`${SERVER}/orders/${initOrder.order_ID}/zalopay`, {}, accessToken)
+    const accessToken = await this.getAccessTokenClientSide()
+    if (!accessToken) return null
+    return await fetcher.postWithAuth(`${SERVER}/orders/zalopay/create-order`, data, accessToken)
   }
 
   private async getAccessTokenClientSide() {
