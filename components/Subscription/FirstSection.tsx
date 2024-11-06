@@ -1,6 +1,7 @@
 import Image from "next/image";
 import section1 from "../../public/subscription/section1/image.png";
 import Button, { ButtonType } from "../common/Button";
+import Link from "next/link";
 const FirstSection = () => {
   const mockData = [
     {
@@ -36,7 +37,7 @@ const FirstSection = () => {
             ))
           }
         </div>
-        <Button label="Explore plans" type={ButtonType.Secondary} />
+        <Link href={'#plans'}><Button label="Explore plans" type={ButtonType.Secondary} /></Link>
       </div>
     </div>
   );

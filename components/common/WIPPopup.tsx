@@ -1,10 +1,13 @@
 'use client';
 import { useState } from "react";
 import Button from "./Button";
+
 interface WIPPopupProps {
   gate: React.ReactNode;
+  isFull?: boolean;
 }
-const WIPPopup: React.FC<WIPPopupProps> = ({ gate }) => {
+
+const WIPPopup: React.FC<WIPPopupProps> = ({ gate, isFull }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => {
     setIsModalOpen(true);
@@ -13,9 +16,9 @@ const WIPPopup: React.FC<WIPPopupProps> = ({ gate }) => {
     setIsModalOpen(false);
   };
   return (
-    <div>
+    <div className={`${isFull ? 'w-full' : ''}`}>
       {/* Button to open modal */}
-      <div onClick={openModal}>
+      <div onClick={openModal} className={`${isFull ? 'w-full' : ''}`}>
         {gate}
       </div>
       {/* Modal */}

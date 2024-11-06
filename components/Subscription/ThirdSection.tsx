@@ -50,7 +50,7 @@ const ThirdSection = () => {
     }
   ]
   return (
-    <div className="flex flex-col lg:flex-row border-t-[1px] border-black">
+    <div className="flex flex-col lg:flex-row border-t-[1px] border-black" id='plans'>
       {/* Left */}
       <div className="flex flex-col items-center lg:w-1/2 h-full border-r-[1px] border-black px-10 py-20 gap-6">
         {/*  */}
