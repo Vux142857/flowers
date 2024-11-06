@@ -9,6 +9,10 @@ This project is a [Next.js](https://nextjs.org/) flowers e-commerce platform wit
 
 > **Note**: This project is for study purposes and is still under development, so not all features are fully functional.
 
+## Template
+
+This project’s design is inspired by the [Ecommerce Flower Delivery Website UI/UX Kit Template on Figma](https://www.figma.com/community/file/1259217583079978202/ecommerce-flower-delivery-website-ui-ux-ui-kit-template).
+
 ## Demo
 
 Explore the live demo here: [https://flowers-amber-seven.vercel.app](https://flowers-amber-seven.vercel.app)
