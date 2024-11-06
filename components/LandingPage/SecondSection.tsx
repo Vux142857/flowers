@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Button, { ButtonType } from "../common/Button";
 
 const SecondSection = () => {
@@ -17,9 +18,9 @@ const SecondSection = () => {
               Kyiv LuxeBouquets is a modern floral studio that specializes in creating uniquely crafted bouquets and gifts for any occasion. Our team of professional florists is dedicated to providing exceptional customer service and delivering high-quality products. We take pride in our attention to detail and our commitment to excellence. Whether you are celebrating a special occasion or simply want to brighten someone&apos;s day, Kyiv LuxeBouquets has the perfect floral arrangement for you.
             </span>
           </div>
-          <div>
+          <Link href={"/about-us"}>
             <Button label="Learn More" type={ButtonType.Secondary} />
-          </div>
+          </Link>
         </div>
       </div>
     </>
