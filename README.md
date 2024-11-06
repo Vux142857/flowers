@@ -23,7 +23,7 @@ To access the admin panel, use the following demo account credentials:
 ## Project Repositories
 
 - **Frontend (Next.js)**: [https://github.com/Vux142857/flowers](https://github.com/Vux142857/flowers)
-- **Backend API (Node.js/Express)**: [https://flowers-be.onrender.com](https://flowers-be.onrender.com)
+- **Backend API (NestJS)**: [https://flowers-be.onrender.com](https://flowers-be.onrender.com)
 - **Backend API Repository**: [https://github.com/Vux142857/flowers-be](https://github.com/Vux142857/flowers-be)
 
 ## Getting Started
@@ -45,7 +45,23 @@ To set up the project locally, follow the steps below:
    yarn install
    ```
 
-3. **Run the development server**:
+3. **Set up environment variables**:
+
+   Create a `.env.local` file in the root directory with the following content:
+
+   ```env
+   NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=
+   NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET=
+   NEXT_PUBLIC_SERVER=http://localhost:3000
+   NEXT_HOST=http://localhost:3001
+   JWT_SECRET=
+   NEXTAUTH_SECRET=
+   BASE_ADMIN_URL=/admin
+   ```
+
+   > **Note**: To use Cloudinary features (e.g., image upload), you will need a Cloudinary account. Sign up at [https://cloudinary.com/](https://cloudinary.com/) and fill in `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME` and `NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET` with your account credentials.
+
+4. **Run the development server**:
 
    ```bash
    npm run dev
@@ -53,36 +69,25 @@ To set up the project locally, follow the steps below:
    yarn dev
    ```
 
-4. **Access the application**:
+5. **Access the application**:
 
-   Open [http://localhost:3000](http://localhost:3000) in your browser to view the client site.
+   Open [http://localhost:3001](http://localhost:3001) in your browser to view the client site.
 
-5. **Admin Panel**:
+6. **Admin Panel**:
 
-   Navigate to [http://localhost:3000/admin](http://localhost:3000/admin) to access the admin panel.
+   Navigate to [http://localhost:3001/admin](http://localhost:3001/admin) to access the admin panel.
 
 > **Note**: The backend API should also be running locally if you want to test all functionalities. Refer to the backend repository for setup instructions.
 
-## Environment Variables
-
-This project uses environment variables to manage API configurations. Create a `.env.local` file in the root directory and set up the following:
-
-```env
-NEXT_PUBLIC_API_URL=https://flowers-be.onrender.com
-```
-
-Replace `https://flowers-be.onrender.com` with the URL of your backend API if different.
-
 ## Project Structure
 
-- **pages/**: Contains all pages for both client (`/`) and admin (`/admin`) sections.
+- **app/**: Contains all pages for both client (`/`) and admin (`/admin`) sections.
 - **components/**: Shared components used across both client and admin sections.
 - **services/**: API service files for making HTTP requests to the backend.
-- **styles/**: Global styles and styling utilities.
 
 ## Backend API
 
-The backend API is developed using Node.js/Express and provides RESTful endpoints to manage products, orders, users, etc. Access the backend API documentation here: [Backend API Repository](https://github.com/Vux142857/flowers-be).
+The backend API is developed using NestJS and provides RESTful endpoints to manage products, orders, users, etc. Access the backend API documentation here: [Backend API Repository](https://github.com/Vux142857/flowers-be).
 
 ## Key Features
 
@@ -92,8 +97,8 @@ The backend API is developed using Node.js/Express and provides RESTful endpoint
   - User registration and login
 - **Admin**:
   - Manage products, orders, categories
-  - Monitor sales and inventory
-  - Access reports and analytics
+  - Monitor sales and inventory (WIP)
+  - Access reports and analytics (WIP)
 
 ## Learn More
 
