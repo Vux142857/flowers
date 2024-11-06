@@ -22,6 +22,7 @@ const Pagination: React.FC<PaginationProps> = ({ meta, links }) => {
   const getPageUrl = (url: string, page: number) => {
     const urlObj = new URL(url);
     urlObj.searchParams.set("page", page.toString());
+    urlObj.pathname = "/admin" + urlObj.pathname;
     return urlObj.toString();
   };
 
@@ -31,7 +32,7 @@ const Pagination: React.FC<PaginationProps> = ({ meta, links }) => {
     <div className="flex items-center justify-center space-x-2 my-4">
       <Link
         className={`px-3 py-1 rounded ${currentPage === 1 ? 'bg-gray-300 disabled:opacity-50' : 'bg-black text-white'} `}
-        href={links.previous}
+        href={getPageUrl(links.previous, currentPage - 1)}
         aria-disabled={currentPage === 1}
       >
         Previous
@@ -47,7 +48,7 @@ const Pagination: React.FC<PaginationProps> = ({ meta, links }) => {
       ))}
       <Link
         className={`px-3 py-1 rounded ${currentPage === totalPages ? 'bg-gray-300 disabled:opacity-50' : 'bg-black text-white'}`}
-        href={links.next}
+        href={getPageUrl(links.next, currentPage + 1)}
         aria-disabled={currentPage === totalPages}
       >
         Next

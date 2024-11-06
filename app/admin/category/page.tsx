@@ -55,7 +55,7 @@ const Category = async (
     <CategoryFilter counts={counts} /> :
     (<></>);
   return categories ? (
-    <LayoutTable schemaName={Schemas.CATEGORY} filterComponent={categoryFilter} columns={columns} response={categories} createLink={`/${Schemas.CATEGORY}/new`} />
+    <LayoutTable schemaName={Schemas.CATEGORY} filterComponent={categoryFilter} columns={columns} response={categories} createLink={`/admin/${Schemas.CATEGORY}/new`} />
   ) : (<Loader />);
 };
 
