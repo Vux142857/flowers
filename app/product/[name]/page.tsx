@@ -11,7 +11,15 @@ const Product = async (
     searchParams: { [key: string]: string }
   }
 ) => {
-  const productDetail = await productService.getProductById(searchParams.id);
+  let productDetail;
+  if (searchParams.id === undefined) {
+    return <div>Product not found</div>;
+  } else {
+    productDetail = await productService.getProductById(searchParams.id);
+    if (!productDetail) {
+      return <div>Product not found</div>;
+    }
+  }
   const combineProductsResponse = await productService.getProductsByCategory(productDetail.category.id);
   const combineProducts = combineProductsResponse?.data.slice(0, 5) || [];
   const suggestedProducts = combineProducts?.slice(0, 4) || [];

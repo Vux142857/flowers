@@ -30,7 +30,7 @@ const Category = async (
         {/* Right */}
         <div className='lg:w-1/2 flex flex-col'>
           <div className="grid grid-cols-1 lg:grid-cols-2">
-            {products.map((item: IProduct) => (
+            {products.length > 0 && products.map((item: IProduct) => (
               <ProductCard key={item.id} {...item} />
             ))}
           </div>
